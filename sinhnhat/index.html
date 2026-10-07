@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🎂 Happy Birthday Hoàng Chí Đức</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 20% 10%,#7138a5,transparent 30%),
+        radial-gradient(circle at 80% 20%,#c52f83,transparent 30%),
+        linear-gradient(135deg,#10081f,#24103e,#080812);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:99;
+}
+
+.container{
+    width:min(1000px,92%);
+    margin:auto;
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+/* ================= TRANG ĐẦU ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 0;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:50px;
+    background:#ffffff12;
+    border:1px solid #ffffff30;
+    backdrop-filter:blur(10px);
+    color:#ddd;
+}
+
+h1{
+    margin:25px 0 15px;
+    font-size:clamp(42px,9vw,82px);
+    line-height:1;
+    text-shadow:
+        0 0 15px #ff69c7,
+        0 0 45px #ff69c766;
+}
+
+.subtitle{
+    color:#ddd;
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+/* ================= ĐẾM NGƯỢC ================= */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    max-width:700px;
+    margin:auto;
+}
+
+.time{
+    padding:20px 8px;
+    border-radius:22px;
+    background:#ffffff10;
+    border:1px solid #ffffff25;
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px #0005;
+}
+
+.number{
+    font-size:clamp(32px,7vw,58px);
+    font-weight:800;
+}
+
+.label{
+    margin-top:5px;
+    font-size:12px;
+    color:#aaa;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    border:none;
+    border-radius:50px;
+    padding:14px 25px;
+    margin:25px 5px 5px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#28102d;
+    background:linear-gradient(135deg,#ffd86b,#ff78c8);
+    box-shadow:0 8px 30px #ff72c844;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:70px 0;
+}
+
+.card{
+    padding:35px;
+    margin-bottom:25px;
+    border-radius:28px;
+    background:#ffffff0d;
+    border:1px solid #ffffff20;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px #0005;
+}
+
+h2{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.message{
+    max-width:780px;
+    margin:auto;
+    color:#eee;
+    font-size:19px;
+    line-height:1.9;
+}
+
+/* ================= HỘP QUÀ ================= */
+
+.gift{
+    font-size:100px;
+    cursor:pointer;
+    display:inline-block;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-15px) rotate(5deg);
+    }
+}
+
+/* ================= ẢNH ================= */
+
+.photos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.photo-card{
+    background:#ffffff0c;
+    border:1px solid #ffffff20;
+    border-radius:20px;
+    padding:10px;
+    transform:rotate(-2deg);
+    transition:.3s;
+}
+
+.photo-card:nth-child(2){
+    transform:rotate(2deg);
+}
+
+.photo-card:nth-child(3){
+    transform:rotate(-1deg);
+}
+
+.photo-card:hover{
+    transform:translateY(-10px) rotate(0);
+}
+
+.photo{
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:14px;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff82c8,#716cff);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.photo-title{
+    padding:13px 5px 8px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* ================= CÂU HỎI ================= */
+
+.question{
+    font-size:22px;
+    line-height:1.5;
+    margin:20px 0;
+}
+
+.answer{
+    display:block;
+    width:min(550px,100%);
+    margin:10px auto;
+}
+
+#result{
+    margin-top:20px;
+    font-size:21px;
+    font-weight:bold;
+    color:#ffd86b;
+}
+
+/* ================= TIM BAY ================= */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:25px;
+    animation:heartFly 5s linear forwards;
+    pointer-events:none;
+    z-index:50;
+}
+
+@keyframes heartFly{
+    to{
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* ================= ẨN ================= */
+
+.hidden{
+    display:none;
+}
+
+footer{
+    text-align:center;
+    color:#999;
+    padding:35px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .countdown{
+        gap:6px;
+    }
+
+    .time{
+        padding:14px 4px;
+        border-radius:16px;
+    }
+
+    .photos{
+        grid-template-columns:1fr;
+    }
+
+    .photo-card,
+    .photo-card:nth-child(2),
+    .photo-card:nth-child(3){
+        transform:none;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+
+<!-- ==================================================
+     TRANG ĐẦU
+================================================== -->
+
+<div class="hero">
+
+<div class="container">
+
+    <div class="badge">
+        🎁 Một món quà bí mật dành cho anh
+    </div>
+
+    <h1>
+        🎂<br>
+        Hoàng Chí Đức
+    </h1>
+
+    <p class="subtitle" id="status">
+        Đang đếm ngược đến ngày đặc biệt...
+    </p>
+
+
+    <!-- ĐẾM NGƯỢC -->
+
+    <div class="countdown">
+
+        <div class="time">
+            <div class="number" id="days">00</div>
+            <div class="label">NGÀY</div>
+        </div>
+
+        <div class="time">
+            <div class="number" id="hours">00</div>
+            <div class="label">GIỜ</div>
+        </div>
+
+        <div class="time">
+            <div class="number" id="minutes">00</div>
+            <div class="label">PHÚT</div>
+        </div>
+
+        <div class="time">
+            <div class="number" id="seconds">00</div>
+            <div class="label">GIÂY</div>
+        </div>
+
+    </div>
+
+
+    <button onclick="openGift()">
+        🎁 MỞ QUÀ
+    </button>
+
+    <button onclick="toggleMusic()" id="musicButton">
+        🎵 Bật nhạc
+    </button>
+
+    <audio id="music" loop>
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+</div>
+
+
+
+<!-- ==================================================
+     PHẦN BẤT NGỜ
+================================================== -->
+
+<section id="surprise" class="hidden">
+
+<div class="container">
+
+
+    <!-- LỜI CHÚC -->
+
+    <div class="card">
+
+        <div
+            class="gift"
+            onclick="fireworks()">
+
+            🎁
+
+        </div>
+
+        <h2>
+            🎉 Bất ngờ dành cho anh!
+        </h2>
+
+        <p class="message">
+
+            Hôm nay là một ngày rất đặc biệt! ❤️
+
+            <br><br>
+
+            🎂 Chúc mừng sinh nhật anh
+            <strong>Hoàng Chí Đức</strong>!
+
+            <br><br>
+
+            Chúc anh tuổi mới luôn mạnh khỏe,
+            vui vẻ, may mắn và thành công.
+
+            <br>
+
+            Mong rằng những điều tốt đẹp nhất
+            sẽ luôn đến với anh.
+
+            <br><br>
+
+            Cảm ơn anh vì đã luôn là
+            một người anh tuyệt vời! ❤️
+
+            <br><br>
+
+            🎉 HAPPY BIRTHDAY 🎉
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         3 ẢNH
+    ================================================== -->
+
+    <div class="card">
+
+        <h2>
+            📸 Những kỷ niệm của anh
+        </h2>
+
+        <div class="photos">
+
+            <div class="photo-card">
+
+                <div class="photo">
+                    <img src="anh1.jpg"
+                         alt="Anh 1"
+                         onerror="this.style.display='none'">
+                </div>
+
+                <div class="photo-title">
+                    ❤️ Anh 1
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <div class="photo">
+                    <img src="anh2.jpg"
+                         alt="Anh 2"
+                         onerror="this.style.display='none'">
+                </div>
+
+                <div class="photo-title">
+                    ❤️ Anh 2
+                </div>
+
+            </div>
+
+
+            <div class="photo-card">
+
+                <div class="photo">
+                    <img src="anh3.jpg"
+                         alt="Anh 3"
+                         onerror="this.style.display='none'">
+                </div>
+
+                <div class="photo-title">
+                    ❤️ Anh 3
+                </div>
+
+            </div>
+
+        </div>
+
+        <p style="color:#aaa;margin-top:18px">
+            Đặt ảnh <b>anh1.jpg</b>, <b>anh2.jpg</b>,
+            <b>anh3.jpg</b> cùng thư mục với file HTML.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         CÂU HỎI
+    ================================================== -->
+
+    <div class="card">
+
+        <h2>
+            ❓ Một chút thử thách cho anh
+        </h2>
+
+        <p style="color:#bbb">
+            Xem anh trả lời được bao nhiêu câu nhé 😎
+        </p>
+
+        <div id="quiz"></div>
+
+        <div id="result"></div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+    Made with ❤️ dành riêng cho Hoàng Chí Đức
+</footer>
+
+
+
+<script>
+
+/* ==================================================
+   ĐẾM NGƯỢC
+================================================== */
+
+const birthday =
+    new Date("2026-10-09T00:00:00+07:00");
+
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const difference =
+        birthday - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById("days").textContent="00";
+        document.getElementById("hours").textContent="00";
+        document.getElementById("minutes").textContent="00";
+        document.getElementById("seconds").textContent="00";
+
+        document.getElementById("status").textContent =
+            "🎉 HÔM NAY LÀ SINH NHẬT ANH RỒI! 🎉";
+
+        fireworks();
+
+        return;
+    }
+
+
+    let total =
+        Math.floor(difference/1000);
+
+
+    const days =
+        Math.floor(total/86400);
+
+
+    const hours =
+        Math.floor(
+            total%86400/3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            total%3600/60
+        );
+
+
+    const seconds =
+        total%60;
+
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+
+/* ==================================================
+   MỞ QUÀ
+================================================== */
+
+function openGift(){
+
+    document
+        .getElementById("surprise")
+        .classList
+        .remove("hidden");
+
+
+    document
+        .getElementById("surprise")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    fireworks();
+
+    createHearts();
+
+}
+
+
+
+/* ==================================================
+   NHẠC
+================================================== */
+
+const music =
+    document.getElementById("music");
+
+let playing=false;
+
+
+function toggleMusic(){
+
+    if(!playing){
+
+        music.play();
+
+        playing=true;
+
+        document.getElementById(
+            "musicButton"
+        ).textContent =
+            "🔊 Đang phát nhạc";
+
+    }
+
+    else{
+
+        music.pause();
+
+        playing=false;
+
+        document.getElementById(
+            "musicButton"
+        ).textContent =
+            "🎵 Bật nhạc";
+
+    }
+
+}
+
+
+
+/* ==================================================
+   PHÁO HOA
+================================================== */
+
+const canvas =
+    document.getElementById("canvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles=[];
+
+
+function resize(){
+
+    canvas.width =
+        innerWidth;
+
+    canvas.height =
+        innerHeight;
+
+}
+
+resize();
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+
+function fireworks(){
+
+    for(
+        let i=0;
+        i<200;
+        i++
+    ){
+
+        particles.push({
+
+            x:
+                innerWidth/2
+                +
+                (Math.random()-.5)*300,
+
+            y:
+                innerHeight*.35,
+
+            vx:
+                (Math.random()-.5)*14,
+
+            vy:
+                (Math.random()-1.2)*13,
+
+            gravity:.25,
+
+            life:
+                100+
+                Math.random()*100,
+
+            size:
+                3+
+                Math.random()*6
+
+        });
+
+    }
+
+}
+
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    particles =
+        particles.filter(
+            p=>p.life>0
+        );
+
+
+    particles.forEach(p=>{
+
+        p.x+=p.vx;
+
+        p.y+=p.vy;
+
+        p.vy+=p.gravity;
+
+        p.life--;
+
+
+        ctx.fillStyle =
+            `hsl(
+                ${Math.random()*360},
+                90%,
+                65%
+            )`;
+
+
+        ctx.fillRect(
+            p.x,
+            p.y,
+            p.size,
+            p.size*1.5
+        );
+
+    });
+
+
+    requestAnimationFrame(
+        animate
+    );
+
+}
+
+animate();
+
+
+
+/* ==================================================
+   TIM BAY
+================================================== */
+
+function createHearts(){
+
+    for(
+        let i=0;
+        i<20;
+        i++
+    ){
+
+        setTimeout(()=>{
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className="heart";
+
+            heart.textContent =
+                ["❤️","💖","💕","💗","💝"]
+                [
+                    Math.floor(
+                        Math.random()*5
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random()*100+"%";
+
+
+            heart.style.animationDuration =
+                3+
+                Math.random()*3
+                +"s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                ()=>heart.remove(),
+                6000
+            );
+
+        },i*150);
+
+    }
+
+}
+
+
+
+/* ==================================================
+   MINI GAME
+================================================== */
+
+const questions=[
+
+    {
+        question:
+        "Anh có phải là một người anh tuyệt vời không?",
+
+        answers:[
+            "Có ❤️",
+            "Tất nhiên rồi 😎",
+            "Chắc chắn!"
+        ]
+    },
+
+    {
+        question:
+        "Sinh nhật năm nay anh có vui không?",
+
+        answers:[
+            "Có 🎉",
+            "Rất vui!",
+            "Quá vui luôn!"
+        ]
+    },
+
+    {
+        question:
+        "Anh có nhận món quà này không?",
+
+        answers:[
+            "Nhận 🎁",
+            "Nhận ngay!",
+            "Không thể từ chối ❤️"
+        ]
+    },
+
+    {
+        question:
+        "Anh có hứa sẽ luôn vui vẻ không?",
+
+        answers:[
+            "Hứa ❤️",
+            "Chắc chắn!",
+            "100%!"
+        ]
+    }
+
+];
+
+
+let currentQuestion=0;
+
+let score=0;
+
+
+function showQuestion(){
+
+    const quiz =
+        document.getElementById("quiz");
+
+
+    if(
+        currentQuestion
+        >=
+        questions.length
+    ){
+
+        quiz.innerHTML="";
+
+
+        document.getElementById(
+            "result"
+        ).innerHTML=`
+
+            🎉 Hoàn thành!
+
+            <br>
+
+            Anh đạt
+            <strong>
+                ${score}/${questions.length}
+            </strong>
+
+            <br><br>
+
+            ❤️ Chúc anh Hoàng Chí Đức
+            sinh nhật thật vui! ❤️
+
+        `;
+
+
+        fireworks();
+
+        createHearts();
+
+        return;
+
+    }
+
+
+    const q =
+        questions[currentQuestion];
+
+
+    quiz.innerHTML=`
+
+        <div class="question">
+            ${q.question}
+        </div>
+
+        ${q.answers.map(
+            answer=>`
+
+            <button
+                class="answer"
+                onclick="nextQuestion()">
+
+                ${answer}
+
+            </button>
+
+        `
+        ).join("")}
+
+    `;
+
+}
+
+
+function nextQuestion(){
+
+    score++;
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+showQuestion();
+
+</script>
+
+</body>
+</html>
